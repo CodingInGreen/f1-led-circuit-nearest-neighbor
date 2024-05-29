@@ -16,9 +16,9 @@ fn euclidean_distance(x1: f64, y1: f64, x2: f64, y2: f64) -> f64 {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let first_dataset_path = "zandvoort_data.csv";
+    let first_dataset_path = "zandvoort_data_tsunoda.csv";
     let second_dataset_path = "zandvoort_led_coordinates_normalized_check_for_inversion.csv";
-    let output_path = "led_designator_labeled_zandvoort_data.csv";
+    let output_path = "led_designator_labeled_zandvoort_data_tsunoda.csv";
 
     // Read the second dataset
     let second_dataset_file = File::open(second_dataset_path)?;
@@ -40,7 +40,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     // Add the new column header
     let mut output_headers = headers.clone();
-    output_headers.push_field("Nearest Neighbor Designator");
+    output_headers.push_field("designator");
 
     // Create the output writer
     let output_file = File::create(output_path)?;
